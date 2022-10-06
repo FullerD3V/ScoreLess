@@ -59,7 +59,7 @@ public class FXMLDocumentController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //To change body of generated methods, choose Tools | Templates.
+        //TODO
     }
         
 }
