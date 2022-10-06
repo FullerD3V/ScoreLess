@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 
 /**
@@ -31,6 +33,13 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private TextField txt3;
+    
+    @FXML
+    private ImageView img;
+    
+    Image triEq = new Image("scoreless/Assets/eq.png");
+    Image triEsc = new Image("scoreless/Assets/esc.png");
+    Image triIsc = new Image("scoreless/Assets/isc.png");
   
    public void onKeyTyped(KeyEvent event) {
         if (!event.getCharacter().matches("[0-9]")) {
@@ -39,6 +48,7 @@ public class FXMLDocumentController implements Initializable {
         
         if (txt1.getText().isEmpty() || txt2.getText().isEmpty() || txt3.getText().isEmpty()) {
             lbl.setText("No hay suficientes datos");
+            img.setImage(null);
         }
         
     }
@@ -49,11 +59,14 @@ public class FXMLDocumentController implements Initializable {
         z = Integer.parseInt(txt3.getText());
         
         if (x == y && y == z) {
-            lbl.setText("Hay un triángulo equilátero");
+            lbl.setText("Hay un triángulo equilátero");            
+            img.setImage(triEq);
         } else if (x == y || y == z || x == z) {
             lbl.setText("Hay un triángulo isósceles");
+            img.setImage(triIsc);
         } else {
             lbl.setText("Hay un triángulo escaleno");
+            img.setImage(triEsc);
         }
     }
 
